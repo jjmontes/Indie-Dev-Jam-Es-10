@@ -22,4 +22,9 @@ func _physics_process(delta):
 	velocity.y += delta * gravity
 	if jumping && is_on_floor():
 		jumping = false
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
+	if velocity.x == 0:
+		walk_speed *= -1
+		$Sprite.flip_h = walk_speed < 0
+	
