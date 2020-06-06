@@ -27,6 +27,3 @@ func _physics_process(delta):
 	if velocity.x == 0:
 		walk_speed *= -1
 		$Sprite.flip_h = walk_speed < 0
-	
-func _on_Exit_player_entered():
-	print("prueba")
