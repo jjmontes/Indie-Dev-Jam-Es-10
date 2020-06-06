@@ -13,4 +13,7 @@ tile_data = PoolIntArray( -786445, 0, 0, -786444, 0, 0, -786443, 0, 0, -786442, 
 
 [node name="Exit" parent="." instance=ExtResource( 2 )]
 position = Vector2( 915.94, 475.169 )
+
+[node name="PlayerStartPosition" type="Position2D" parent="."]
+position = Vector2( 120.134, 388.395 )
 [connection signal="player_entered" from="Exit" to="." method="_on_Exit_player_entered"]
