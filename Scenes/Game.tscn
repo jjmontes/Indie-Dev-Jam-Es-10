@@ -1,18 +1,14 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Levels/001.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Exit.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=4]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 147.474, 330.105 )
-
 [node name="Level" parent="." instance=ExtResource( 2 )]
 
-[node name="Exit" parent="." instance=ExtResource( 3 )]
-position = Vector2( 901.053, 474.737 )
-[connection signal="player_entered" from="Exit" to="." method="_on_player_exit_level"]
+[node name="Player" parent="Level" instance=ExtResource( 1 )]
+position = Vector2( 147.474, 330.105 )
+[connection signal="exit" from="Level" to="." method="_on_Level_exit"]
