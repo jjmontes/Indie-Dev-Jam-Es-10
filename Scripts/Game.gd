@@ -4,7 +4,8 @@ var current_level
 var index_level = 0
 var player = preload("res://Scenes/Player.tscn")
 var levels = [
-	preload("res://Scenes/Levels/001.tscn")
+	preload("res://Scenes/Levels/001.tscn"),
+	preload("res://Scenes/Levels/002.tscn"),
 ]
 
 func _ready():
