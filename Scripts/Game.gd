@@ -7,9 +7,11 @@ var levels = [
 	preload("res://Scenes/Levels/001.tscn"),
 	preload("res://Scenes/Levels/002.tscn"),
 ]
+var menuScene = preload("res://Scenes/Menu.tscn")
+var menu
 
 func _ready():
-	load_level(index_level)
+	load_menu()
 
 func _on_level_exit():
 	current_level.queue_free()
@@ -24,3 +26,16 @@ func load_level(index):
 	current_level.add_player(player.instance())
 	add_child(current_level)
 	index_level = index
+
+func load_menu():
+	menu = menuScene.instance()
+	menu.connect("option_play_selected", self, "_on_menu_option_play_selected")
+	menu.connect("option_credits_selected", self, "_on_menu_option_credits_selected")
+	$CanvasLayer.add_child(menu)
+
+func _on_menu_option_play_selected():
+	load_level(index_level)
+	menu.queue_free()
+
+func _on_menu_option_credits_selected():
+	print("Creditos")
