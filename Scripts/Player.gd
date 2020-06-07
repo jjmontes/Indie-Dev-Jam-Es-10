@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-var walk_speed = 200
+var walk_speed = 100
+var run_speed = 250
 var jump_speed = -410
 var gravity = 1200
 var jumping = false
@@ -11,8 +12,8 @@ func _get_input():
 	if Input.is_key_pressed(KEY_SPACE) && !jumping && is_on_floor():
 		jumping = true
 		velocity.y = jump_speed
-	elif Input.is_key_pressed(KEY_CONTROL):
-		print ("punch")
+	if Input.is_key_pressed(KEY_CONTROL):
+		velocity.x = run_speed
 
 func _ready():
 	pass
@@ -26,4 +27,5 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if velocity.x == 0:
 		walk_speed *= -1
+		run_speed *= -1
 		$Sprite.flip_h = walk_speed < 0
