@@ -1,5 +1,13 @@
 extends Control
 
+signal option_play_selected
+signal option_credits_selected
+
+var signals = {
+	0: "option_play_selected",
+	1: "option_credits_selected"
+}
+
 onready var menuOptions = get_tree().get_nodes_in_group("menuOption")
 
 func _get_input():
@@ -7,6 +15,8 @@ func _get_input():
 		_menu_up()
 	elif Input.is_action_just_pressed("ui_down"):
 		_menu_down()
+	elif Input.is_action_just_pressed("ui_select"):
+		_emit_signal_option()
 
 func _menu_up():
 	for menu in menuOptions:
@@ -27,6 +37,12 @@ func _menu_down():
 				index = -1
 			menuOptions[index + 1].set_editor_only(false)
 			return
-	
+
+func _emit_signal_option():
+	for menu in menuOptions:
+		if !menu.get_editor_only():
+			var index = menuOptions.find(menu)
+			emit_signal(signals[index])
+
 func _process(delta):
 	_get_input()
