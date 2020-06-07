@@ -24,7 +24,7 @@ func load_level(index):
 	current_level = levels[index].instance()
 	current_level.connect("exit", self, "_on_level_exit")
 	current_level.add_player(player.instance())
-	add_child(current_level)
+	call_deferred("add_child", current_level)
 	index_level = index
 
 func load_menu():
