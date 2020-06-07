@@ -38,4 +38,4 @@ func _on_menu_option_play_selected():
 	menu.queue_free()
 
 func _on_menu_option_credits_selected():
-	print("Creditos")
+	menu.ShowCredits()

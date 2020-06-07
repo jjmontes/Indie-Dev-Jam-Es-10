@@ -1,0 +1,14 @@
+Juego desarrollado para la Indie Dev Jam en Español #10
+https://itch.io/jam/indie-dev-jam-es-10
+
+El tema del mismo es: DOS BOTONES
+
+Autor: Juan José Montes de Oca Arbós
+ * itch.io: https://itch.io/profile/jjmontes
+
+Recursos externos
+~~~~~~~~~~~~~~~~~
+Fonts:
+ * Early Gameboy de Jimmy Campbell
+   * https://www.dafont.com/es/early-gameboy.font
+   * https://www.dafont.com/es/profile.php?user=757106

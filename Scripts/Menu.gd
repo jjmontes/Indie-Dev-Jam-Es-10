@@ -46,3 +46,14 @@ func _emit_signal_option():
 
 func _process(_delta):
 	_get_input()
+
+func _on_Close_pressed():
+	$PopupDialog.hide()
+
+func ShowCredits():
+	var file = File.new()
+	file.open("res://credits.txt", File.READ)
+	var content = file.get_as_text()
+	file.close()
+	$PopupDialog/Text.text = content
+	$PopupDialog.popup()
