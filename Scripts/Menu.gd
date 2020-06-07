@@ -44,5 +44,5 @@ func _emit_signal_option():
 			var index = menuOptions.find(menu)
 			emit_signal(signals[index])
 
-func _process(delta):
+func _process(_delta):
 	_get_input()
