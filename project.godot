@@ -19,6 +19,11 @@ config/name="Indie Dev Jam Es #10"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
