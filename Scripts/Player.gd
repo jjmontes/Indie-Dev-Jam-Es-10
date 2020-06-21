@@ -9,11 +9,13 @@ var velocity = Vector2()
 
 func _get_input():
 	velocity.x = walk_speed
+	$AnimatedSprite.frames.set_animation_speed("walking", 5)
 	if Input.is_key_pressed(KEY_SPACE) && !jumping && is_on_floor():
 		jumping = true
 		velocity.y = jump_speed
 	if Input.is_key_pressed(KEY_CONTROL):
 		velocity.x = run_speed
+		$AnimatedSprite.frames.set_animation_speed("walking", 10)
 
 func _ready():
 	pass
@@ -25,7 +27,7 @@ func _physics_process(delta):
 		jumping = false
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
-	if velocity.x == 0:
+	if abs(velocity.x) < abs(walk_speed):
 		walk_speed *= -1
 		run_speed *= -1
-		$Sprite.flip_h = walk_speed < 0
+		$AnimatedSprite.flip_h = walk_speed < 0
