@@ -2,6 +2,7 @@ extends Node2D
 
 var current_level
 var index_level = 0
+var lives = 3
 var player = preload("res://Scenes/Player.tscn")
 var levels = [
 	preload("res://Scenes/Levels/001.tscn"),
@@ -20,7 +21,11 @@ func _on_level_exit():
 func _on_level_dead():
 	#TODO: Escena de perder
 	current_level.remove_player()
-	current_level.add_player(player.instance())
+	lives -= 1
+	if lives >= 0:
+		current_level.add_player(player.instance())
+	else:
+		print("fin")
 
 func load_level(index):
 	if levels.size() <= index:
