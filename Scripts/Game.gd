@@ -8,6 +8,7 @@ var levels = [
 	preload("res://Scenes/Levels/001.tscn"),
 	preload("res://Scenes/Levels/002.tscn"),
 ]
+var gameOverScene = preload("res://Scenes/GameOver.tscn")
 var menuScene = preload("res://Scenes/Menu.tscn")
 var menu
 
@@ -25,7 +26,15 @@ func _on_level_dead():
 	if lives >= 0:
 		current_level.add_player(player.instance())
 	else:
-		print("fin")
+		_game_over()
+
+func _game_over():
+	current_level.queue_free()
+	var gameOver = gameOverScene.instance()
+	$CanvasLayer.add_child(gameOver)
+	yield(get_tree().create_timer(3.0), "timeout")
+	gameOver.queue_free()
+	load_menu()
 
 func load_level(index):
 	if levels.size() <= index:
