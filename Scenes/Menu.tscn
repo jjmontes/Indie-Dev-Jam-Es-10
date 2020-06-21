@@ -46,10 +46,10 @@ margin_right = 994.0
 margin_bottom = 60.0
 
 [node name="Title" type="Label" parent="MarginContainer/VBoxContainer/TitleContainer"]
-margin_right = 288.0
+margin_right = 672.0
 margin_bottom = 60.0
 custom_fonts/font = SubResource( 1 )
-text = "Titulo"
+text = "The Slime Quest"
 
 [node name="SubTitleContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 64.0
