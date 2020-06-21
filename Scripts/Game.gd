@@ -17,12 +17,18 @@ func _on_level_exit():
 	current_level.queue_free()
 	load_level(index_level + 1)
 
+func _on_level_dead():
+	#TODO: Escena de perder
+	current_level.remove_player()
+	current_level.add_player(player.instance())
+
 func load_level(index):
 	if levels.size() <= index:
 		print("Se acabaron los niveles... digamos que ganaste...")
 		return
 	current_level = levels[index].instance()
 	current_level.connect("exit", self, "_on_level_exit")
+	current_level.connect("dead", self, "_on_level_dead")
 	current_level.add_player(player.instance())
 	call_deferred("add_child", current_level)
 	index_level = index

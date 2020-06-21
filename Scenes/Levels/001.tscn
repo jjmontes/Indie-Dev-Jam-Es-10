@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Tiles/Background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Exit.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Levels/Level.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 675.837, 10 )
 
 [node name="001" type="Node2D"]
 script = ExtResource( 3 )
@@ -16,4 +19,14 @@ position = Vector2( 915.94, 475.169 )
 
 [node name="PlayerStartPosition" type="Position2D" parent="."]
 position = Vector2( 120.134, 388.395 )
+
+[node name="AreaDead" type="Area2D" parent="."]
+position = Vector2( 505.082, 523.286 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Collision" type="CollisionShape2D" parent="AreaDead"]
+shape = SubResource( 1 )
 [connection signal="player_entered" from="Exit" to="." method="_on_Exit_player_entered"]
+[connection signal="body_entered" from="AreaDead" to="." method="_on_AreaDead_player_entered"]
