@@ -7,6 +7,7 @@ var player = preload("res://Scenes/Player.tscn")
 var levels = [
 	preload("res://Scenes/Levels/001.tscn"),
 	preload("res://Scenes/Levels/002.tscn"),
+	preload("res://Scenes/Levels/003.tscn"),
 ]
 var gameOverScene = preload("res://Scenes/GameOver.tscn")
 var winScene = preload("res://Scenes/Win.tscn")

@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Tiles/Background.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Levels/Level.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Exit.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 220.383, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 262.85, 10 )
+
+[node name="003" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="TileMap" parent="." instance=ExtResource( 1 )]
+tile_data = PoolIntArray( 983056, 13, 0, 983057, 13, 0, 1114113, 13, 0, 1114114, 13, 0, 1114115, 13, 0, 1114116, 13, 0, 1114117, 13, 0, 1114118, 13, 0, 1114119, 13, 0, 1114120, 13, 0, 1114121, 13, 0, 1114122, 13, 0, 1114123, 13, 0, 1114124, 13, 0, 1114125, 13, 0, 1114126, 13, 0, 1114127, 13, 0, 1114128, 13, 0, 1114129, 13, 0, 1114130, 13, 0, 1114131, 13, 0, 1114132, 13, 0, 1114133, 13, 0, 1114134, 13, 0, 1114135, 13, 0, 1114136, 13, 0, 1114137, 13, 0, 1114138, 13, 0, 1114139, 13, 0, 1114140, 13, 0, 1114141, 13, 0, 1114142, 13, 0, 1769463, 13, 0, 1769464, 13, 0, 1769465, 13, 0, 1769466, 13, 0, 1703970, 13, 0, 1703971, 13, 0, 1703972, 13, 0, 1703973, 13, 0, 1703974, 13, 0, 1703975, 13, 0, 1703976, 13, 0, 1703977, 13, 0, 1703978, 13, 0, 1703979, 13, 0, 1703980, 13, 0, 1703981, 13, 0 )
+
+[node name="PlayerStartPosition" type="Position2D" parent="."]
+position = Vector2( 52.9866, 471.71 )
+
+[node name="Exit" parent="." instance=ExtResource( 3 )]
+position = Vector2( -271.524, 815.835 )
+
+[node name="AreaDead" type="Area2D" parent="."]
+position = Vector2( 1736.62, 983.362 )
+
+[node name="CollisionRight" type="CollisionShape2D" parent="AreaDead"]
+shape = SubResource( 1 )
+
+[node name="CollisionLeft" type="CollisionShape2D" parent="AreaDead"]
+position = Vector2( -2026.15, -46.2634 )
+shape = SubResource( 2 )
+[connection signal="player_entered" from="Exit" to="." method="_on_Exit_player_entered"]
+[connection signal="body_entered" from="AreaDead" to="." method="_on_AreaDead_player_entered"]
