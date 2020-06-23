@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Indie Dev Jam Es #10"
+config/name="The Slime Quest"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
 
@@ -26,4 +26,5 @@ window/stretch/aspect="expand"
 
 [rendering]
 
+environment/default_clear_color=Color( 0.207843, 0.356863, 0.419608, 1 )
 environment/default_environment="res://default_env.tres"
