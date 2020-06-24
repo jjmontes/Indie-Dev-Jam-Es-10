@@ -4,6 +4,8 @@ var current_level
 var index_level = 0
 var lives
 var player = preload("res://Scenes/Player.tscn")
+var uiScene = preload("res://Scenes/UI.tscn")
+var ui
 var levels = [
 	preload("res://Scenes/Levels/001.tscn"),
 	preload("res://Scenes/Levels/002.tscn"),
@@ -27,11 +29,13 @@ func _on_level_dead():
 	current_level.remove_player()
 	lives -= 1
 	if lives >= 0:
+		ui.player_lives(lives)
 		current_level.add_player(player.instance())
 	else:
 		_game_over()
 
 func _game_over():
+	ui.queue_free()
 	current_level.queue_free()
 	var gameOver = gameOverScene.instance()
 	$CanvasLayer.add_child(gameOver)
@@ -43,6 +47,8 @@ func load_level(index):
 	if levels.size() <= index:
 		_win()
 	else:
+		ui.player_lives(lives)
+		$CanvasLayer.add_child(ui)
 		current_level = levels[index].instance()
 		current_level.connect("exit", self, "_on_level_exit")
 		current_level.connect("dead", self, "_on_level_dead")
@@ -66,6 +72,7 @@ func load_menu():
 
 func _on_menu_option_play_selected():
 	lives = 3
+	ui = uiScene.instance()
 	load_level(index_level)
 	menu.queue_free()
 
