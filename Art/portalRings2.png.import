@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Exit.png-00b372405399cf8f21c58e9462f14577.stex"
+path="res://.import/portalRings2.png-73980323e7263a43f71999286a7a0a2b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Exit.png"
-dest_files=[ "res://.import/Exit.png-00b372405399cf8f21c58e9462f14577.stex" ]
+source_file="res://Art/portalRings2.png"
+dest_files=[ "res://.import/portalRings2.png-73980323e7263a43f71999286a7a0a2b.stex" ]
 
 [params]
 

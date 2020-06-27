@@ -9,6 +9,12 @@ Autor: Juan José Montes de Oca Arbós
 Recursos externos
 ~~~~~~~~~~~~~~~~~
 Fonts:
- * Early Gameboy de Jimmy Campbell
+ * "Early Gameboy" de Jimmy Campbell
    * https://www.dafont.com/es/early-gameboy.font
    * https://www.dafont.com/es/profile.php?user=757106
+
+Graficos:
+ * "Portal Rings 2" de LetargicDev
+   * https://opengameart.org/content/portals
+   * https://opengameart.org/users/letargicdev
+
