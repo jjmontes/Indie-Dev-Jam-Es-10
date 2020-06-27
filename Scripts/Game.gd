@@ -22,6 +22,8 @@ func _ready():
 	load_menu()
 
 func _on_level_exit():
+	current_level.win_level()
+	yield(get_tree().create_timer(2.0), "timeout")
 	current_level.queue_free()
 	load_level(index_level + 1)
 
