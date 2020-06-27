@@ -50,8 +50,6 @@ func load_level(index):
 	if levels.size() <= index:
 		_win()
 	else:
-		ui.player_lives(lives)
-		$CanvasLayer.add_child(ui)
 		current_level = levels[index].instance()
 		current_level.connect("exit", self, "_on_level_exit")
 		current_level.connect("dead", self, "_on_level_dead")
@@ -76,6 +74,8 @@ func load_menu():
 func _on_menu_option_play_selected():
 	lives = 3
 	ui = uiScene.instance()
+	ui.player_lives(lives)
+	$CanvasLayer.add_child(ui)
 	load_level(index_level)
 	menu.queue_free()
 
