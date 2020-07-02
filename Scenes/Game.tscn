@@ -6,3 +6,5 @@
 script = ExtResource( 4 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Loop_CoolDude_01.ogg-46c3f14fcc53a59e87808ea20b06beee.oggstr"
+
+[deps]
+
+source_file="res://Sound/Loop_CoolDude_01.ogg"
+dest_files=[ "res://.import/Loop_CoolDude_01.ogg-46c3f14fcc53a59e87808ea20b06beee.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,6 +3,8 @@ extends Node2D
 var current_level
 var index_level = 0
 var lives
+var menumusic = preload("res://Sound/Loop_CoolDude_01.ogg")
+var levelmusic = preload("res://Sound/Loop_TreasureHunter_04 (Game).ogg")
 var player = preload("res://Scenes/Player.tscn")
 var uiScene = preload("res://Scenes/UI.tscn")
 var ui
@@ -50,6 +52,10 @@ func load_level(index):
 	if levels.size() <= index:
 		_win()
 	else:
+		$BackgroundMusic.stream = levelmusic
+		$BackgroundMusic.volume_db = -10
+		$BackgroundMusic.pitch_scale = 1
+		$BackgroundMusic.play()
 		current_level = levels[index].instance()
 		current_level.connect("exit", self, "_on_level_exit")
 		current_level.connect("dead", self, "_on_level_dead")
@@ -66,6 +72,10 @@ func _win():
 	load_menu()
 
 func load_menu():
+	$BackgroundMusic.stream = menumusic
+	$BackgroundMusic.volume_db = -15
+	$BackgroundMusic.pitch_scale = 1.3
+	$BackgroundMusic.play()
 	menu = menuScene.instance()
 	menu.connect("option_play_selected", self, "_on_menu_option_play_selected")
 	menu.connect("option_credits_selected", self, "_on_menu_option_credits_selected")
