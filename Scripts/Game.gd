@@ -5,6 +5,7 @@ var index_level = 0
 var lives
 var menumusic = preload("res://Sound/Loop_CoolDude_01.ogg")
 var levelmusic = preload("res://Sound/Loop_TreasureHunter_04 (Game).ogg")
+var win_music = preload("res://Sound/Jingle_Win_01.ogg")
 var player = preload("res://Scenes/Player.tscn")
 var uiScene = preload("res://Scenes/UI.tscn")
 var ui
@@ -25,7 +26,11 @@ func _ready():
 
 func _on_level_exit():
 	current_level.win_level()
-	yield(get_tree().create_timer(2.0), "timeout")
+	$BackgroundMusic.stream = win_music
+	$BackgroundMusic.volume_db = 0
+	$BackgroundMusic.pitch_scale = 1
+	$BackgroundMusic.play()
+	yield(get_tree().create_timer(3.5), "timeout")
 	current_level.queue_free()
 	load_level(index_level + 1)
 
