@@ -8,6 +8,7 @@ var jumping = false
 var velocity = Vector2()
 var is_demo_mode = false
 var is_demo_mode_running = false
+var jump_effect = preload("res://Sound/Jump_00.ogg")
 
 func _get_input():
 	_external_input()
@@ -45,6 +46,8 @@ func SpeedWalk():
 func Jump():
 	jumping = true
 	velocity.y = jump_speed
+	$Effects.stream = jump_effect
+	$Effects.play()
 	
 func _physics_process(delta):
 	_get_input()
