@@ -21,7 +21,7 @@ position = Vector2( 915.94, 475.169 )
 position = Vector2( 120.134, 388.395 )
 
 [node name="AreaDead" type="Area2D" parent="."]
-position = Vector2( 505.082, 523.286 )
+position = Vector2( 505.082, 572.286 )
 __meta__ = {
 "_edit_group_": true
 }
