@@ -6,6 +6,7 @@ var lives
 var menumusic = preload("res://Sound/Loop_CoolDude_01.ogg")
 var levelmusic = preload("res://Sound/Loop_TreasureHunter_04 (Game).ogg")
 var win_music = preload("res://Sound/Jingle_Win_01.ogg")
+var lose_music = preload("res://Sound/Jingle_Lose_00.ogg")
 var player = preload("res://Scenes/Player.tscn")
 var uiScene = preload("res://Scenes/UI.tscn")
 var ui
@@ -24,22 +25,39 @@ var menu
 func _ready():
 	load_menu()
 
-func _on_level_exit():
-	current_level.win_level()
+func _music_win_level():
 	$BackgroundMusic.stream = win_music
 	$BackgroundMusic.volume_db = 0
 	$BackgroundMusic.pitch_scale = 1
 	$BackgroundMusic.play()
+
+func _music_lose_live():
+	$BackgroundMusic.stream = lose_music
+	$BackgroundMusic.volume_db = 0
+	$BackgroundMusic.pitch_scale = 1
+	$BackgroundMusic.play()
+
+func _music_level():
+	$BackgroundMusic.stream = levelmusic
+	$BackgroundMusic.volume_db = -10
+	$BackgroundMusic.pitch_scale = 1
+	$BackgroundMusic.play()
+
+func _on_level_exit():
+	current_level.win_level()
+	_music_win_level()
 	yield(get_tree().create_timer(3.5), "timeout")
 	current_level.queue_free()
 	load_level(index_level + 1)
 
 func _on_level_dead():
-	#TODO: Escena de perder
+	_music_lose_live()
+	yield(get_tree().create_timer(3.0), "timeout")
 	current_level.remove_player()
 	lives -= 1
 	if lives >= 0:
 		ui.player_lives(lives)
+		_music_level()
 		current_level.add_player(player.instance())
 	else:
 		_game_over()
@@ -57,10 +75,7 @@ func load_level(index):
 	if levels.size() <= index:
 		_win()
 	else:
-		$BackgroundMusic.stream = levelmusic
-		$BackgroundMusic.volume_db = -10
-		$BackgroundMusic.pitch_scale = 1
-		$BackgroundMusic.play()
+		_music_level()
 		current_level = levels[index].instance()
 		current_level.connect("exit", self, "_on_level_exit")
 		current_level.connect("dead", self, "_on_level_dead")

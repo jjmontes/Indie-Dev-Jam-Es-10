@@ -20,6 +20,7 @@ func remove_player():
 
 func _on_AreaDead_player_entered(body):
 	if body.is_in_group("player"):
+		player_in_level.set_physics_process(false)
 		emit_signal("dead")
 
 func win_level():

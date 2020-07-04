@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Jingle_Lose_00.ogg-a773cfa22ee56e6cd5f51b5e5d2865a4.oggstr"
+
+[deps]
+
+source_file="res://Sound/Jingle_Lose_00.ogg"
+dest_files=[ "res://.import/Jingle_Lose_00.ogg-a773cfa22ee56e6cd5f51b5e5d2865a4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
